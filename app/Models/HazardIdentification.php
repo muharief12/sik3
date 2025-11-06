@@ -10,7 +10,7 @@ class HazardIdentification extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'hazard_identification';
+    protected $table = 'hazard_identifications';
     protected $guarded = ['id'];
 
     public function activityList()

@@ -18,11 +18,12 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use UnitEnum;
 
 class WorkStationResource extends Resource
 {
     protected static ?string $model = WorkStation::class;
-
+    protected static string | UnitEnum | null $navigationGroup = 'Master Data';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     public static function form(Schema $schema): Schema
