@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\WorkStations\Tables;
+namespace App\Filament\Resources\DeterminingControls\Tables;
 
 use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
@@ -13,14 +12,23 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-class WorkStationsTable
+class DeterminingControlsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('risk_assessment_id')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('risk_control')
                     ->searchable(),
+                TextColumn::make('control_hierarchical_id')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('cost')
+                    ->money()
+                    ->sortable(),
                 TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
@@ -40,7 +48,6 @@ class WorkStationsTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
-                DeleteAction::make()
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

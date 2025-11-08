@@ -13,7 +13,7 @@ class WorkStationSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('work_stations')->insert(
+        DB::table('work_stations')->insert([
             [
                 'name' => 'Persiapan Bahan',
                 'created_at' => now(),
@@ -44,6 +44,6 @@ class WorkStationSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-        );
+        ]);
     }
 }

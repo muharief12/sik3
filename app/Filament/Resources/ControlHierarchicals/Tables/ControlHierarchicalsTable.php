@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\WorkStations\Tables;
+namespace App\Filament\Resources\ControlHierarchicals\Tables;
 
 use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
@@ -13,7 +12,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-class WorkStationsTable
+class ControlHierarchicalsTable
 {
     public static function configure(Table $table): Table
     {
@@ -21,6 +20,9 @@ class WorkStationsTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
+                TextColumn::make('description')
+                    ->limit(50)
+                    ->wrap(),
                 TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
@@ -40,7 +42,6 @@ class WorkStationsTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
-                DeleteAction::make()
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

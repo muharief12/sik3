@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\HazardIdentifications\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
@@ -18,12 +19,15 @@ class HazardIdentificationsTable
     {
         return $table
             ->columns([
-                TextColumn::make('activity_list_id')
+                TextColumn::make('activityList.activity')
                     ->numeric()
+                    ->wrap()
                     ->sortable(),
                 TextColumn::make('hazard')
+                    ->wrap()
                     ->searchable(),
                 TextColumn::make('risk')
+                    ->wrap()
                     ->searchable(),
                 TextColumn::make('deleted_at')
                     ->dateTime()
@@ -44,6 +48,7 @@ class HazardIdentificationsTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

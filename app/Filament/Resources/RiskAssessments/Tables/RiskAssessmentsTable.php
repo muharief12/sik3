@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\WorkStations\Tables;
+namespace App\Filament\Resources\RiskAssessments\Tables;
 
 use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
@@ -13,13 +12,27 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-class WorkStationsTable
+class RiskAssessmentsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('hazard_identification_id')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('likelihood')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('severity')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('total')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('category')
+                    ->searchable(),
+                TextColumn::make('status')
                     ->searchable(),
                 TextColumn::make('deleted_at')
                     ->dateTime()
@@ -40,7 +53,6 @@ class WorkStationsTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
-                DeleteAction::make()
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
