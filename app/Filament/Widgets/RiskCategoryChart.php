@@ -17,7 +17,7 @@ class RiskCategoryChart extends ChartWidget
         $highCategoryCount = RiskAssessment::where('category', 'Tinggi')->count();
         $extremeCategoryCount = RiskAssessment::where('category', 'Ekstrem')->count();
         return [
-            'dataset' => [
+            'datasets' => [
                 [
                     'label' => 'Kategori Risiko',
                     'data' => [
@@ -27,10 +27,10 @@ class RiskCategoryChart extends ChartWidget
                         $extremeCategoryCount,
                     ],
                     'backgroundColor' => [
-                        '#34D399', // Green for Low
-                        '#FBBF24', // Yellow for Moderate
-                        '#F87171', // Red for High
-                        '#B91C1C', // Dark Red for Extreme
+                        '#34D399', // Green for Rendah
+                        '#3B82F6', // Blue for Moderat
+                        '#FBBF24', // Yellow for Tinggi
+                        '#B91C1C', // Dark Red for Ekstrem
                     ],
                     'hoverOffset' => 8,
                 ],

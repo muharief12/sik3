@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ControlHierarchicalSeeder::class);
         $this->call(WorkStationSeeder::class);
         $this->call(ActivityListSeeder::class);
+        $this->call(HazardIdentificationSeeder::class);
+        $this->call(RiskAssessmentSeeder::class);
     }
 }
