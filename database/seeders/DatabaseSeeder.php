@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ActivityListSeeder::class);
         $this->call(HazardIdentificationSeeder::class);
         $this->call(RiskAssessmentSeeder::class);
+        $this->call(DeterminingControlSeeder::class);
     }
 }
