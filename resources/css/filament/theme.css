@@ -1,0 +1,5 @@
+.fi-active {
+    border-left-width: 4px;
+    border-left-color: theme("colors.primary.500");
+    background-color: theme("colors.primary.50");
+}

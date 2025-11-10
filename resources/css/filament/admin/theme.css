@@ -1,0 +1,9 @@
+@import "../../../../vendor/filament/filament/resources/css/theme.css";
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+li .fi-active {
+    border-left-width: 4px;
+    border-left-color: theme("colors.primary.500");
+}

@@ -18,31 +18,31 @@ class RiskCategorySeeder extends Seeder
             ['likelihood' => 2, 'severity' => 1, 'category' => 'Rendah', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 3, 'severity' => 1, 'category' => 'Rendah', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 4, 'severity' => 1, 'category' => 'Rendah', 'created_at' => now(), 'updated_at' => now()],
-            ['likelihood' => 4, 'severity' => 1, 'category' => 'Moderat', 'created_at' => now(), 'updated_at' => now()],
+            ['likelihood' => 5, 'severity' => 1, 'category' => 'Moderat', 'created_at' => now(), 'updated_at' => now()],
 
             ['likelihood' => 1, 'severity' => 2, 'category' => 'Rendah', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 2, 'severity' => 2, 'category' => 'Rendah', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 3, 'severity' => 2, 'category' => 'Moderat', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 4, 'severity' => 2, 'category' => 'Moderat', 'created_at' => now(), 'updated_at' => now()],
-            ['likelihood' => 4, 'severity' => 2, 'category' => 'Moderat', 'created_at' => now(), 'updated_at' => now()],
+            ['likelihood' => 5, 'severity' => 2, 'category' => 'Moderat', 'created_at' => now(), 'updated_at' => now()],
 
             ['likelihood' => 1, 'severity' => 3, 'category' => 'Moderat', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 2, 'severity' => 3, 'category' => 'Moderat', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 3, 'severity' => 3, 'category' => 'Tinggi', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 4, 'severity' => 3, 'category' => 'Tinggi', 'created_at' => now(), 'updated_at' => now()],
-            ['likelihood' => 4, 'severity' => 3, 'category' => 'Tinggi', 'created_at' => now(), 'updated_at' => now()],
+            ['likelihood' => 5, 'severity' => 3, 'category' => 'Tinggi', 'created_at' => now(), 'updated_at' => now()],
 
             ['likelihood' => 1, 'severity' => 4, 'category' => 'Tinggi', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 2, 'severity' => 4, 'category' => 'Tinggi', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 3, 'severity' => 4, 'category' => 'Tinggi', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 4, 'severity' => 4, 'category' => 'Ekstrem', 'created_at' => now(), 'updated_at' => now()],
-            ['likelihood' => 4, 'severity' => 4, 'category' => 'Ekstrem', 'created_at' => now(), 'updated_at' => now()],
+            ['likelihood' => 5, 'severity' => 4, 'category' => 'Ekstrem', 'created_at' => now(), 'updated_at' => now()],
 
             ['likelihood' => 1, 'severity' => 5, 'category' => 'Tinggi', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 2, 'severity' => 5, 'category' => 'Ekstrem', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 3, 'severity' => 5, 'category' => 'Ekstrem', 'created_at' => now(), 'updated_at' => now()],
             ['likelihood' => 4, 'severity' => 5, 'category' => 'Ekstrem', 'created_at' => now(), 'updated_at' => now()],
-            ['likelihood' => 4, 'severity' => 5, 'category' => 'Ekstrem', 'created_at' => now(), 'updated_at' => now()],
+            ['likelihood' => 5, 'severity' => 5, 'category' => 'Ekstrem', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }

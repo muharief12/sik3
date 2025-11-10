@@ -24,7 +24,7 @@ class WorkStationResource extends Resource
 {
     protected static ?string $model = WorkStation::class;
     protected static string | UnitEnum | null $navigationGroup = 'Master Data';
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    // protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     public static function form(Schema $schema): Schema
     {

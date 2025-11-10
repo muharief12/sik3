@@ -18,19 +18,50 @@ class RiskAssessmentsTable
     {
         return $table
             ->columns([
-                TextColumn::make('hazard_identification_id')
-                    ->numeric()
+                TextColumn::make('hazardIdentification.risk')
+                    ->wrap()
+                    ->label('Risiko')
                     ->sortable(),
                 TextColumn::make('likelihood')
-                    ->numeric()
+                    ->label('Kemungkinan')
+                    ->formatStateUsing(function ($state) {
+                        $labels = [
+                            1 => 'Sangat Kecil (1)',
+                            2 => 'Kecil (2)',
+                            3 => 'Sedang (3)',
+                            4 => 'Besar (4)',
+                            5 => 'Sangat Besar (5)',
+                        ];
+
+                        return $labels[$state] ?? '-';
+                    })
                     ->sortable(),
                 TextColumn::make('severity')
-                    ->numeric()
+                    ->label('Dampak')
+                    ->formatStateUsing(function ($state) {
+                        $labels = [
+                            1 => 'Tidak Signifikan (1)',
+                            2 => 'Minor (2)',
+                            3 => 'Medium (3)',
+                            4 => 'Signifikan (4)',
+                            5 => 'Kritis (5)',
+                        ];
+
+                        return $labels[$state] ?? '-';
+                    })
                     ->sortable(),
                 TextColumn::make('total')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('category')
+                    ->label('Kategori')
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
+                        'Rendah' => 'success',
+                        'Moderat' => 'info',
+                        'Tinggi' => 'warning',
+                        'Ekstrem' => 'danger',
+                    })
                     ->searchable(),
                 TextColumn::make('status')
                     ->searchable(),

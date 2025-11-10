@@ -24,7 +24,7 @@ class DeterminingControlResource extends Resource
     protected static ?string $navigationLabel = 'Determining Control (DC)';
     protected static ?int $navigationSort = 4;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    // protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     public static function form(Schema $schema): Schema
     {

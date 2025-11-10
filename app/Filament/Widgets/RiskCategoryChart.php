@@ -33,6 +33,7 @@ class RiskCategoryChart extends ChartWidget
                         '#B91C1C', // Dark Red for Ekstrem
                     ],
                     'hoverOffset' => 8,
+                    'borderWidth' => 0.8,
                 ],
             ],
             'labels' => ['Rendah', 'Moderat', 'Tinggi', 'Ekstrem'],

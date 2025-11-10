@@ -22,7 +22,7 @@ class HazardIdentificationResource extends Resource
 {
     protected static ?string $model = HazardIdentification::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    // protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
     protected static ?string $navigationLabel = 'Hazard Identifications (HI)';
     protected static ?int $navigationSort = 2;
 

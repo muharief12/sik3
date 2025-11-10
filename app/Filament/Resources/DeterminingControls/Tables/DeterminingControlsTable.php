@@ -18,16 +18,29 @@ class DeterminingControlsTable
     {
         return $table
             ->columns([
-                TextColumn::make('risk_assessment_id')
-                    ->numeric()
+                TextColumn::make('riskAssessment.hazardIdentification.risk')
+                    ->label('Risiko')
+                    ->wrap()
+                    ->sortable(),
+                TextColumn::make('riskAssessment.category')
+                    ->label('Kategori')
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
+                        'Rendah' => 'success',
+                        'Moderat' => 'info',
+                        'Tinggi' => 'warning',
+                        'Ekstrem' => 'danger',
+                    })
                     ->sortable(),
                 TextColumn::make('risk_control')
+                    ->label('Pengendalian Risiko')
+                    ->wrap()
                     ->searchable(),
-                TextColumn::make('control_hierarchical_id')
-                    ->numeric()
+                TextColumn::make('controlHierarchical.name')
+                    ->label('Strategi Pengendalian Risiko')
                     ->sortable(),
                 TextColumn::make('cost')
-                    ->money()
+                    ->prefix('Rp ')
                     ->sortable(),
                 TextColumn::make('deleted_at')
                     ->dateTime()

@@ -16,7 +16,7 @@ class DeterminingControlChart extends ChartWidget
             $query->where('name', 'Eliminasi');
         })->count();
         $subtitusi = DeterminingControl::whereHas('controlHierarchical', function ($query) {
-            $query->where('name', 'Substitusi');
+            $query->where('name', 'Subtitusi');
         })->count();
         $engineering = DeterminingControl::whereHas('controlHierarchical', function ($query) {
             $query->where('name', 'Engineering');
@@ -28,7 +28,7 @@ class DeterminingControlChart extends ChartWidget
             $query->where('name', 'APD');
         })->count();
         return [
-            'dataset' => [
+            'datasets' => [
                 [
                     'label' => 'Determining Control',
                     'data' => [
@@ -48,7 +48,7 @@ class DeterminingControlChart extends ChartWidget
                     'hoverOffset' => 8,
                 ],
             ],
-            'labels' => ['Eliminasi', 'Substitusi', 'Engineering', 'Administrasi', 'APD'],
+            'labels' => ['Eliminasi', 'Subtitusi', 'Engineering', 'Administrasi', 'APD'],
         ];
     }
 

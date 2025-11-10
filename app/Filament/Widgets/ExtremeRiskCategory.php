@@ -4,6 +4,7 @@ namespace App\Filament\Widgets;
 
 use App\Models\RiskAssessment;
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget;
@@ -30,14 +31,36 @@ class ExtremeRiskCategory extends TableWidget
                 TextColumn::make('hazardIdentification.risk')
                     ->label('Nama Risiko')
                     ->searchable()
-                    ->limit(40),
+                    ->wrap(),
 
                 TextColumn::make('likelihood')
                     ->label('Kemungkinan')
+                    ->formatStateUsing(function ($state) {
+                        $labels = [
+                            1 => 'Sangat Kecil (1)',
+                            2 => 'Kecil (2)',
+                            3 => 'Sedang (3)',
+                            4 => 'Besar (4)',
+                            5 => 'Sangat Besar (5)',
+                        ];
+
+                        return $labels[$state] ?? '-';
+                    })
                     ->sortable(),
 
                 TextColumn::make('severity')
                     ->label('Dampak')
+                    ->formatStateUsing(function ($state) {
+                        $labels = [
+                            1 => 'Tidak Signifikan (1)',
+                            2 => 'Minor (2)',
+                            3 => 'Medium (3)',
+                            4 => 'Signifikan (4)',
+                            5 => 'Kritis (5)',
+                        ];
+
+                        return $labels[$state] ?? '-';
+                    })
                     ->sortable(),
 
                 TextColumn::make('category')
@@ -63,7 +86,7 @@ class ExtremeRiskCategory extends TableWidget
                 //
             ])
             ->recordActions([
-                //
+                EditAction::make(),
             ])
             ->striped()
             ->toolbarActions([
