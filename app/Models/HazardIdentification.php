@@ -22,4 +22,9 @@ class HazardIdentification extends Model
     {
         return $this->hasMany(RiskAssessment::class, 'hazard_identification_id');
     }
+
+    public function riskActors()
+    {
+        return $this->hasMany(RiskActor::class, 'hazard_identification_id', 'id',);
+    }
 }

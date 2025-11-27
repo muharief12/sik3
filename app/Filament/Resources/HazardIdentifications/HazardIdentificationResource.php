@@ -6,6 +6,7 @@ use App\Filament\Resources\HazardIdentifications\Pages\CreateHazardIdentificatio
 use App\Filament\Resources\HazardIdentifications\Pages\EditHazardIdentification;
 use App\Filament\Resources\HazardIdentifications\Pages\ListHazardIdentifications;
 use App\Filament\Resources\HazardIdentifications\Pages\ViewHazardIdentification;
+use App\Filament\Resources\HazardIdentifications\RelationManagers\RiskActorsRelationManager;
 use App\Filament\Resources\HazardIdentifications\Schemas\HazardIdentificationForm;
 use App\Filament\Resources\HazardIdentifications\Schemas\HazardIdentificationInfolist;
 use App\Filament\Resources\HazardIdentifications\Tables\HazardIdentificationsTable;
@@ -43,9 +44,7 @@ class HazardIdentificationResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array

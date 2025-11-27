@@ -29,6 +29,15 @@ class HazardIdentificationsTable
                 TextColumn::make('risk')
                     ->wrap()
                     ->searchable(),
+                TextColumn::make('riskActors.user.name')
+                    ->label('Risk Actors')
+                    ->formatStateUsing(function ($record) {
+                        return $record->riskActors
+                            ->pluck('user.name')
+                            ->unique()
+                            ->join(' | ');
+                    })
+                    ->searchable(),
                 TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
