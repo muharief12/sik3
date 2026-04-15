@@ -18,6 +18,12 @@ class HazardIdentification extends Model
         return $this->belongsTo(ActivityList::class, 'activity_list_id');
     }
 
+    // Agar tidak N+1 saat Staff memperbarui risk assessments setiap hari
+    public function latestRiskAssessment()
+    {
+        return $this->hasOne(RiskAssessment::class)->latestOfMany();
+    }
+
     public function riskAssessments()
     {
         return $this->hasMany(RiskAssessment::class, 'hazard_identification_id');

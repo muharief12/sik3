@@ -12,12 +12,21 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class HazardIdentificationsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(function (Builder $query) {
+                if (Auth::user()->hasRole('Staff')) {
+                    $query->whereHas('riskActors', function ($q) {
+                        $q->where('user_id', Auth::id());
+                    });
+                }
+            })
             ->columns([
                 TextColumn::make('activityList.activity')
                     ->numeric()
@@ -31,12 +40,12 @@ class HazardIdentificationsTable
                     ->searchable(),
                 TextColumn::make('riskActors.user.name')
                     ->label('Risk Actors')
-                    ->formatStateUsing(function ($record) {
-                        return $record->riskActors
-                            ->pluck('user.name')
-                            ->unique()
-                            ->join(' | ');
-                    })
+                    // ->formatStateUsing(function ($record) {
+                    //     return $record->riskActors
+                    //         ->pluck('user.name')
+                    //         ->unique()
+                    //         ->join(' | ');
+                    // })
                     ->searchable(),
                 TextColumn::make('deleted_at')
                     ->dateTime()

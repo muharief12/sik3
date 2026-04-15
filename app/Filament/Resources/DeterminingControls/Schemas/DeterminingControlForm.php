@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources\DeterminingControls\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Str;
 
 class DeterminingControlForm
 {
@@ -27,6 +29,19 @@ class DeterminingControlForm
                     ->required()
                     ->numeric()
                     ->prefix('RP '),
+                FileUpload::make('attachment')
+                    ->image()
+                    ->disk('public')
+                    ->visibility('public')
+                    ->directory('dc_attachment')
+                    ->maxSize(5120) // 5MB
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])
+                    ->extraInputAttributes([
+                        'accept' => 'image/*',
+                        'capture' => 'environtment'
+                    ])
+                    ->getUploadedFileNameForStorageUsing(fn() => Str::uuid() . '.jpg')
+                    ->columnSpanFull()
             ]);
     }
 }

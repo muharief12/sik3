@@ -11,12 +11,21 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class DeterminingControlsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(function (Builder $query) {
+                if (Auth::user()?->hasRole('Staff')) {
+                    $query->whereHas('riskAssessment.hazardIdentification.riskActors', function ($q) {
+                        $q->where('user_id', Auth::id());
+                    });
+                }
+            })
             ->columns([
                 TextColumn::make('riskAssessment.hazardIdentification.risk')
                     ->label('Risiko')
